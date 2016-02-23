@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UT1-Yc-9tr">
-                                <rect key="frame" x="20" y="90" width="560" height="81"/>
+                                <rect key="frame" x="20" y="90" width="560" height="401"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Huita Ebala" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3b-ZX-ZgL">
                                         <rect key="frame" x="0.0" y="0.0" width="87" height="21"/>
@@ -39,6 +40,16 @@
                                             <action selector="smthHappenButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sjf-pe-07z"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="rfB-kG-pgf">
+                                        <rect key="frame" x="0.0" y="81" width="320" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="rfB-kG-pgf" secondAttribute="height" multiplier="1:1" id="3LB-Ef-dCN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="a8i-1v-WOH" appends="YES" id="Ewu-Su-uwQ"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="t41-st-cvn" firstAttribute="leading" secondItem="UT1-Yc-9tr" secondAttribute="leading" id="4eO-Ra-FBE"/>
@@ -56,11 +67,20 @@
                     <connections>
                         <outlet property="nameTextField" destination="t41-st-cvn" id="jFP-4Z-hfK"/>
                         <outlet property="ololoLabel" destination="s3b-ZX-ZgL" id="7Ua-yc-VHa"/>
+                        <outlet property="photoImageView" destination="rfB-kG-pgf" id="ooh-DO-ksu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="a8i-1v-WOH">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="D1v-Pa-KKf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="305" y="385"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="160" height="160"/>
+    </resources>
 </document>
